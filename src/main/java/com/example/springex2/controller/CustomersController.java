@@ -53,6 +53,9 @@ public class CustomersController {
     public ApiRespon withdraw(@PathVariable int id, @RequestBody double mon){
         Customers ca=customers.get(id);
         //double m=ca.getBalance()-c.getBalance();
+        if(mon>ca.getBalance()){
+            return new ApiRespon("Withdraw error - balance is not enough");
+        }
         double m=ca.getBalance()-mon;
         ca.setBalance(m);
         customers.set(id,ca);
