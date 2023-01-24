@@ -40,7 +40,7 @@ public class CustomersController {
         return new ApiRespon("Done delete");
     }
 
-    @PostMapping("/deposit/{id}")
+    @PutMapping("/deposit/{id}")
     public ApiRespon deposit(@PathVariable int id,@RequestBody double mon){
         Customers ca=customers.get(id);
         double m=ca.getBalance()+mon;
@@ -49,7 +49,7 @@ public class CustomersController {
         return  new ApiRespon("Deposit done");
     }
 
-    @PostMapping("/withdraw/{id}")
+    @PutMapping ("/withdraw/{id}")
     public ApiRespon withdraw(@PathVariable int id, @RequestBody double mon){
         Customers ca=customers.get(id);
         //double m=ca.getBalance()-c.getBalance();
